@@ -61,7 +61,7 @@ public class RSSItem: CustomStringConvertible {
         var images: [String] = Array();
         
         do {
-            let regex = try NSRegularExpression(pattern: "(https?)\\S*(png|jpg|jpeg|gif)", options: [NSRegularExpressionOptions.CaseInsensitive])
+            let regex = try NSRegularExpression(pattern: "(https?://\\S*.(png|jpg|jpeg|gif))", options: [NSRegularExpressionOptions.CaseInsensitive])
         
             regex.enumerateMatchesInString(htmlString, options: [NSMatchingOptions.ReportProgress], range: NSMakeRange(0, htmlString.characters.count)) { (result, flags, stop) -> Void in
                 if let range = result?.range {
