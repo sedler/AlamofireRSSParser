@@ -197,6 +197,9 @@ public class AlamofireRSSParser: NSObject, NSXMLParserDelegate {
                 }
             }
             
+            if (elementName == "jms-featured-image") {
+                currentItem.featuredImage = self.currentString
+            }
             
         //if we're at the top level
         } else {

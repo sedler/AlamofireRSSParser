@@ -41,6 +41,7 @@ public class RSSItem: CustomStringConvertible {
     public var pubDate: NSDate? = nil
     public var mediaThumbnail: String? = nil;
     public var mediaContent: String? = nil;
+    public var featuredImage: String? = nil;
     public var imagesFromDescription: [String]? = nil;
     public var imagesFromContent: [String]? = nil;
 
