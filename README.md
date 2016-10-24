@@ -6,10 +6,17 @@
 [![Platform](https://img.shields.io/cocoapods/p/AlamofireRSSParser.svg?style=flat)](http://cocoapods.org/pods/AlamofireRSSParser)
 
 ## Requirements
-- Xcode 7.2+
-- Alamofire 3.0.0 or higher
+- Xcode 8.0+
+- Swift 3.0+
+- Alamofire 4.0+
 
-**Note:** Version 1.0.1+ currently locks the Alamofire dependency at ~> 3.2.1 because for some misguided reason the Alamofire Foundation decided to force us to use Xcode 7.3 in order to use Alamofire 3.3.0.
+#### Legacy Swift Support
+_If you need to support an earlier version of Swift, please either download the zip or point your Podfile at the coresponding tag:_
+
+- **Swift 2.2**: tag "Swift 2.2 Final"
+- **Swift 2.3**: tag "Swift 2.3 Final"
+
+The respective readme's in those tags have more explicit instructions for using tags in CocoaPods.
 
 ## Installation
 
@@ -41,7 +48,7 @@ You use AlamofireRSSParser just like any other response handler in Alamofire:
 ```swift
 let url = "http://rss.cnn.com/rss/cnn_topstories.rss"
     
-Alamofire.request(.GET, url).responseRSS() { (response) -> Void in
+Alamofire.request(url).responseRSS() { (response) -> Void in
     if let feed: RSSFeed = response.result.value {
         //do something with your new RSSFeed object!
         for item in feed.items {
@@ -74,6 +81,7 @@ Current elements:
 
 - media:content
 - media: thumbnail
+- content: encoded
 
 It also yanks all of the images that may be linked in the `itemDescription` (if it's HTML) and creates a nice array named `imagesFromDescription` that you can use for more image content.
 
