@@ -28,7 +28,7 @@ open class RSSItem: CustomStringConvertible {
     
     public var content: String? = nil {
         didSet {
-            if let content = self.content?.stringByRemovingPercentEncoding {
+            if let content = self.content?.removingPercentEncoding {
                 self.imagesFromContent = self.imagesFromHTMLString(content)
             }
         }
